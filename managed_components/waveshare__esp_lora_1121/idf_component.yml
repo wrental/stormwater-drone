@@ -1,0 +1,9 @@
+dependencies:
+  idf:
+    version: '>=5.3.0'
+description: Board Support Package for LoRa 1121
+repository: git://github.com/waveshareteam/Waveshare-ESP32-components.git
+repository_info:
+  commit_sha: 1f604917e8a3033b73551384d4f30a397a42d8b6
+  path: lora/esp_lora_1121
+version: 1.0.0

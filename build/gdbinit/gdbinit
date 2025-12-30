@@ -1,0 +1,2 @@
+source /home/wren/github/stormwater-drone/build/gdbinit/symbols
+source /home/wren/github/stormwater-drone/build/gdbinit/connect
