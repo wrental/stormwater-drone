@@ -23,6 +23,7 @@
 /home/wren/github/stormwater-drone/build/esp-idf/esp_ringbuf/libesp_ringbuf.a
 /home/wren/github/stormwater-drone/build/esp-idf/esp_mm/libesp_mm.a
 /home/wren/github/stormwater-drone/build/esp-idf/vfs/libvfs.a
+/home/wren/github/stormwater-drone/build/esp-idf/esp_driver_usb_serial_jtag/libesp_driver_usb_serial_jtag.a
 /home/wren/github/stormwater-drone/build/esp-idf/esp_vfs_console/libesp_vfs_console.a
 /home/wren/github/stormwater-drone/build/esp-idf/mbedtls/mbedtls/library/libmbedtls.a
 /home/wren/github/stormwater-drone/build/esp-idf/mbedtls/mbedtls/library/libmbedx509.a
@@ -35,6 +36,7 @@
 /home/wren/github/stormwater-drone/build/esp-idf/app_update/libapp_update.a
 /home/wren/github/stormwater-drone/build/esp-idf/esp_app_format/libesp_app_format.a
 /home/wren/github/stormwater-drone/build/esp-idf/esp_bootloader_format/libesp_bootloader_format.a
+/home/wren/github/stormwater-drone/build/esp-idf/esp_mm/libesp_mm.a
 /home/wren/github/stormwater-drone/build/esp-idf/esp_gdbstub/libesp_gdbstub.a
 /home/wren/github/stormwater-drone/build/esp-idf/driver/libdriver.a
 /home/wren/github/stormwater-drone/build/esp-idf/esp_driver_pcnt/libesp_driver_pcnt.a
@@ -45,9 +47,8 @@
 /home/wren/github/stormwater-drone/build/esp-idf/esp_driver_sdmmc/libesp_driver_sdmmc.a
 /home/wren/github/stormwater-drone/build/esp-idf/sdmmc/libsdmmc.a
 /home/wren/github/stormwater-drone/build/esp-idf/esp_driver_sdspi/libesp_driver_sdspi.a
-/home/wren/github/stormwater-drone/build/esp-idf/esp_driver_sdio/libesp_driver_sdio.a
-/home/wren/github/stormwater-drone/build/esp-idf/esp_driver_dac/libesp_driver_dac.a
 /home/wren/github/stormwater-drone/build/esp-idf/esp_driver_rmt/libesp_driver_rmt.a
+/home/wren/github/stormwater-drone/build/esp-idf/esp_driver_tsens/libesp_driver_tsens.a
 /home/wren/github/stormwater-drone/build/esp-idf/esp_driver_sdm/libesp_driver_sdm.a
 /home/wren/github/stormwater-drone/build/esp-idf/esp_driver_i2c/libesp_driver_i2c.a
 /home/wren/github/stormwater-drone/build/esp-idf/esp_driver_ledc/libesp_driver_ledc.a
@@ -77,7 +78,6 @@
 /home/wren/github/stormwater-drone/build/esp-idf/esp_partition/libesp_partition.a
 /home/wren/github/stormwater-drone/build/esp-idf/efuse/libefuse.a
 /home/wren/github/stormwater-drone/build/esp-idf/bootloader_support/libbootloader_support.a
-/home/wren/github/stormwater-drone/build/esp-idf/esp_mm/libesp_mm.a
 /home/wren/github/stormwater-drone/build/esp-idf/spi_flash/libspi_flash.a
 /home/wren/github/stormwater-drone/build/esp-idf/esp_system/libesp_system.a
 /home/wren/github/stormwater-drone/build/esp-idf/esp_common/libesp_common.a
@@ -99,6 +99,7 @@
 /home/wren/github/stormwater-drone/build/esp-idf/esp_event/libesp_event.a
 /home/wren/github/stormwater-drone/build/esp-idf/nvs_flash/libnvs_flash.a
 /home/wren/github/stormwater-drone/build/esp-idf/esp_phy/libesp_phy.a
+/home/wren/github/stormwater-drone/build/esp-idf/esp_driver_usb_serial_jtag/libesp_driver_usb_serial_jtag.a
 /home/wren/github/stormwater-drone/build/esp-idf/esp_vfs_console/libesp_vfs_console.a
 /home/wren/github/stormwater-drone/build/esp-idf/lwip/liblwip.a
 /home/wren/github/stormwater-drone/build/esp-idf/esp_netif/libesp_netif.a
@@ -117,9 +118,8 @@
 /home/wren/github/stormwater-drone/build/esp-idf/sdmmc/libsdmmc.a
 /home/wren/github/stormwater-drone/build/esp-idf/esp_driver_sdmmc/libesp_driver_sdmmc.a
 /home/wren/github/stormwater-drone/build/esp-idf/esp_driver_sdspi/libesp_driver_sdspi.a
-/home/wren/github/stormwater-drone/build/esp-idf/esp_driver_sdio/libesp_driver_sdio.a
-/home/wren/github/stormwater-drone/build/esp-idf/esp_driver_dac/libesp_driver_dac.a
 /home/wren/github/stormwater-drone/build/esp-idf/esp_driver_rmt/libesp_driver_rmt.a
+/home/wren/github/stormwater-drone/build/esp-idf/esp_driver_tsens/libesp_driver_tsens.a
 /home/wren/github/stormwater-drone/build/esp-idf/esp_driver_sdm/libesp_driver_sdm.a
 /home/wren/github/stormwater-drone/build/esp-idf/esp_driver_i2c/libesp_driver_i2c.a
 /home/wren/github/stormwater-drone/build/esp-idf/esp_driver_ledc/libesp_driver_ledc.a
@@ -157,6 +157,8 @@
 /home/wren/github/stormwater-drone/build/esp-idf/perfmon/libperfmon.a
 /home/wren/github/stormwater-drone/build/esp-idf/rt/librt.a
 /home/wren/github/stormwater-drone/build/esp-idf/spiffs/libspiffs.a
+/home/wren/github/stormwater-drone/build/esp-idf/touch_element/libtouch_element.a
+/home/wren/github/stormwater-drone/build/esp-idf/usb/libusb.a
 /home/wren/github/stormwater-drone/build/esp-idf/wifi_provisioning/libwifi_provisioning.a
 /home/wren/github/stormwater-drone/build/esp-idf/json/libjson.a
 /home/wren/github/stormwater-drone/build/esp-idf/chmorgan__esp-libhelix-mp3/libchmorgan__esp-libhelix-mp3.a
@@ -164,6 +166,11 @@
 /home/wren/github/stormwater-drone/build/esp-idf/espressif__libsodium/libespressif__libsodium.a
 /home/wren/github/stormwater-drone/build/esp-idf/espressif__mdns/libespressif__mdns.a
 /home/wren/github/stormwater-drone/build/esp-idf/espressif__cbor/libespressif__cbor.a
+/home/wren/github/stormwater-drone/build/esp-idf/espressif__esp-dsp/libespressif__esp-dsp.a
+/home/wren/github/stormwater-drone/build/esp-idf/espressif__dl_fft/libespressif__dl_fft.a
+/home/wren/github/stormwater-drone/build/esp-idf/espressif__esp-sr/libespressif__esp-sr.a
+/home/wren/github/stormwater-drone/build/esp-idf/spiffs/libspiffs.a
+/home/wren/github/stormwater-drone/build/esp-idf/espressif__dl_fft/libespressif__dl_fft.a
 /home/wren/github/stormwater-drone/build/esp-idf/espressif__esp-dsp/libespressif__esp-dsp.a
 /home/wren/github/stormwater-drone/build/esp-idf/espressif__esp_diag_data_store/libespressif__esp_diag_data_store.a
 /home/wren/github/stormwater-drone/build/esp-idf/espressif__rmaker_common/libespressif__rmaker_common.a
@@ -193,9 +200,6 @@
 /home/wren/github/stormwater-drone/build/esp-idf/espressif__network_provisioning/libespressif__network_provisioning.a
 /home/wren/github/stormwater-drone/build/esp-idf/espressif__esp_rcp_update/libespressif__esp_rcp_update.a
 /home/wren/github/stormwater-drone/build/esp-idf/espressif__esp_secure_cert_mgr/libespressif__esp_secure_cert_mgr.a
-/home/wren/github/stormwater-drone/build/esp-idf/espressif__lan86xx_common/libespressif__lan86xx_common.a
-/home/wren/github/stormwater-drone/build/esp-idf/espressif__lan867x/libespressif__lan867x.a
-/home/wren/github/stormwater-drone/build/esp-idf/espressif__lan86xx_common/libespressif__lan86xx_common.a
 /home/wren/github/stormwater-drone/build/esp-idf/espressif__qrcode/libespressif__qrcode.a
 /home/wren/github/stormwater-drone/build/esp-idf/joltwallet__littlefs/libjoltwallet__littlefs.a
 /home/wren/github/stormwater-drone/build/esp-idf/espressif__arduino-esp32/libespressif__arduino-esp32.a
@@ -204,13 +208,12 @@
 /home/wren/github/stormwater-drone/build/esp-idf/espressif__esp-modbus/libespressif__esp-modbus.a
 /home/wren/github/stormwater-drone/build/esp-idf/espressif__libsodium/libespressif__libsodium.a
 /home/wren/github/stormwater-drone/build/esp-idf/fatfs/libfatfs.a
-/home/wren/github/stormwater-drone/build/esp-idf/spiffs/libspiffs.a
 /home/wren/github/stormwater-drone/build/esp-idf/esp_hid/libesp_hid.a
-/home/wren/github/stormwater-drone/build/esp-idf/espressif__esp-dsp/libespressif__esp-dsp.a
+/home/wren/github/stormwater-drone/build/esp-idf/usb/libusb.a
+/home/wren/github/stormwater-drone/build/esp-idf/espressif__esp-sr/libespressif__esp-sr.a
 /home/wren/github/stormwater-drone/build/esp-idf/espressif__esp_insights/libespressif__esp_insights.a
 /home/wren/github/stormwater-drone/build/esp-idf/espressif__esp_modem/libespressif__esp_modem.a
 /home/wren/github/stormwater-drone/build/esp-idf/espressif__esp_rainmaker/libespressif__esp_rainmaker.a
-/home/wren/github/stormwater-drone/build/esp-idf/espressif__lan867x/libespressif__lan867x.a
 /home/wren/github/stormwater-drone/build/esp-idf/espressif__qrcode/libespressif__qrcode.a
 /home/wren/github/stormwater-drone/build/esp-idf/joltwallet__littlefs/libjoltwallet__littlefs.a
 /home/wren/github/stormwater-drone/build/esp-idf/waveshare__esp_lora_1121/libwaveshare__esp_lora_1121.a
