@@ -19,10 +19,13 @@ extern "C" void app_main(void) {
 	}
 
 	// Program setup:
-	
+	int x {0};
 	
 	// Arduino loop:
 	while(1) {
-		
+		vTaskDelay(250 * portTICK_PERIOD_MS);
+		x = x + 1;
+		Serial.print("loop: ");
+		Serial.println(x);
 	}
 }
