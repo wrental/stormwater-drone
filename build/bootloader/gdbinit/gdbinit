@@ -1,0 +1,2 @@
+source /home/wren/github/v2-stormwater-drone/build/bootloader/gdbinit/symbols
+source /home/wren/github/v2-stormwater-drone/build/bootloader/gdbinit/connect

@@ -1,0 +1,9 @@
+Command: /home/wren/.espressif/python_env/idf5.5_py3.14_env/bin/python /home/wren/esp/esp-idf/tools/idf_monitor.py -p socket://localhost:5555 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 /home/wren/github/v2-stormwater-drone/build/v2-stormwater-drone.elf /home/wren/github/v2-stormwater-drone/build/bootloader/bootloader.elf -m '/home/wren/.espressif/python_env/idf5.5_py3.14_env/bin/python' '/home/wren/esp/esp-idf/tools/idf.py'
+[0;32mI (158) spi_flash: detected chip: winbond[0m
+[0;32mI (159) spi_flash: flash io: dio[0m
+[0;32mI (160) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (160) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (164) main_task: Started on CPU0[0m
+[0;32mI (174) main_task: Calling app_main()[0m
+output test
+[0;32mI (174) main_task: Returned from app_main()[0m

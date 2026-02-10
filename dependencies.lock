@@ -1,0 +1,21 @@
+dependencies:
+  idf:
+    source:
+      type: idf
+    version: 5.5.2
+  waveshare/esp_lora_1121:
+    component_hash: 77cc8d6f8c8386838c0ce9ca8e025cebc918ce9ff5eeb3606484f931bf0c0427
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=5.3.0'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 1.0.0
+direct_dependencies:
+- idf
+- waveshare/esp_lora_1121
+manifest_hash: af93479ff67b6d8269c501c2dffa50898b7594b64dbfa2863e2857c5d2b70dc2
+target: esp32s3
+version: 2.0.0
