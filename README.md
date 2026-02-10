@@ -1,8 +1,8 @@
 ## meta:
-name: pseudo.txt  
+name: v2-stormwater-drone  
 date: 02-10-2026  
 auth: wrental  
-desc: vague pseudocode for drone process  
+desc: vague pseudocode for drone/ctrlr process  
 
 ## files:
 - v2-stormwater-drone.c
@@ -47,8 +47,10 @@ core1 (loop):
     - spool: 0,1
     - fetch: 0,1 (should always be 1 >>> send response)
 - sendData():
+    - setTx()
     - status per <control>
     - data packet with avgData
+    - fallback (Rx)
 
 
 ### ctrlr:
@@ -68,5 +70,44 @@ loop():
 
 core1 (loop):
 - sendPacket()
-- waitForFetch()
+    - setTx()
+    - send packet
+    - setRx()
+    - waitForFetch()
     - updateData()
+    - setTx()
+
+### current iteration (expected):
+hardware features:
+- Li-ion >> 5v BMS
+- replacable battery, no charging
+- bnc connectors for sensors, antenna
+- other(?) connector for pump, spool
+    - *spool requires 4x: +, -, D, FB
+
+software features:
+- read sensors/spool position
+- control spool, pump
+- send/receive controls, data packets
+- data/status readout via connected terminal
+
+### current iteration (hopeful):
+hardware features:
+- local, usb or sd card save (external access)
+- LCD or other isolated readout (no PC connection)
+- 2-pos switches for pump (Off/on), spool(Up/down)
+- button for save
+
+software features:
+- save data snapshot
+
+### dream implementation:
+hardware:
+- custom pcb:
+    - ESP32-S3-WROOM-N16R8
+    - SEMTECH LR1121
+- waterproof 4/5pin connectors for all perifs:
+    - +/-, D+/D- - software selectable 3v3 or 5v per I/O
+- waterproof bnc for antenna
+- waterproof usb-c for charging, but maintain replacable battery
+- waterproof enclosure via molding/gaskets
