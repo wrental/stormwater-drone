@@ -1,2 +1,6 @@
-idf_component_register(SRCS "v3-stormwater-drone.c"
-                    INCLUDE_DIRS ".")
+idf_component_register(
+	SRCS 
+		"v3_stormwater_drone.c"
+	INCLUDE_DIRS 
+		"."
+)
