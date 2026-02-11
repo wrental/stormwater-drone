@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "v2-stormwater-drone",
-    "project_version":    "bb18544-dirty",
+    "project_version":    "f208dd8-dirty",
     "project_path":       "/home/wren/github/v2-stormwater-drone",
     "idf_path":           "/home/wren/esp/esp-idf",
     "build_dir":          "/home/wren/github/v2-stormwater-drone/build",
