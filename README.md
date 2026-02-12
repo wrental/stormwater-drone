@@ -1,12 +1,19 @@
 ## meta:
-name: v2-stormwater-drone  
+name: stormwater-drone  
 date: 02-10-2026  
 auth: wrental  
 desc: vague pseudocode for drone/ctrlr process  
 
-## files:
-- v2-stormwater-drone.c
-- v2-stormwater-ctrlr.c
+## general file structure:
+.  
+├── main (application)  
+│   ├── stormwater_drone.c (app src)  
+│   └── stormwater_drone.h (app hdr)  
+├── components (app dependencies - per dir: 'CMakeLists.txt' 'user_component.c' 'user_component.h')  
+│   └── lr1121_config  
+├── managed_components (idf-component-registry dependencies, maintained by idf.py)  
+│   └── waveshare__esp_lora_1121  
+└── README.md  
 
 ## setup:
 hardware:
