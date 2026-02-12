@@ -5,6 +5,7 @@ auth: wrental
 desc: vague pseudocode for drone/ctrlr process  
 
 ## general file structure:
+```
 .  
 ├── main (application)  
 │   ├── stormwater_drone.c (app src)  
@@ -14,11 +15,12 @@ desc: vague pseudocode for drone/ctrlr process
 ├── managed_components (idf-component-registry dependencies, maintained by idf.py)  
 │   └── waveshare__esp_lora_1121  
 └── README.md  
+```
 
 ## setup:
 hardware:
 - waveshare esp32-s3-tiny
-- waveshare core1121HF
+- waveshare core1121XF
 
 software:
 - main control from ctrlr
