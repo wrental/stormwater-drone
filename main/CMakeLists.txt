@@ -1,7 +1,6 @@
 idf_component_register(
 	SRCS 
-		"v2_stormwater_drone.c" 
-	INCLUDE_DIRS
-		"../include"
+		"v3_stormwater_drone.c"
+	INCLUDE_DIRS 
 		"."
-	)
+)
