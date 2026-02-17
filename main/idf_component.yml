@@ -15,3 +15,4 @@ dependencies:
   #   # All dependencies of `main` are public by default.
   #   public: true
   waveshare/esp_lora_1121: '*'
+  esp-idf-lib/onewire: '*'

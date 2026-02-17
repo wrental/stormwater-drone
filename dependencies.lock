@@ -1,4 +1,44 @@
 dependencies:
+  esp-idf-lib/esp_idf_lib_helpers:
+    component_hash: 689853bb8993434f9556af0f2816e808bf77b5d22100144b21f3519993daf237
+    dependencies: []
+    source:
+      registry_url: https://components.espressif.com
+      type: service
+    targets:
+    - esp32
+    - esp32c2
+    - esp32c3
+    - esp32c5
+    - esp32c6
+    - esp32c61
+    - esp32h2
+    - esp32p4
+    - esp32s2
+    - esp32s3
+    version: 1.4.0
+  esp-idf-lib/onewire:
+    component_hash: d98263e9ab1206caf9bd255652cfd1e7d43524de58a32bc17afe43a425c1674e
+    dependencies:
+    - name: esp-idf-lib/esp_idf_lib_helpers
+      registry_url: https://components.espressif.com
+      require: private
+      version: '*'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    targets:
+    - esp32
+    - esp32c2
+    - esp32c3
+    - esp32c5
+    - esp32c6
+    - esp32c61
+    - esp32h2
+    - esp32p4
+    - esp32s2
+    - esp32s3
+    version: 1.1.0
   idf:
     source:
       type: idf
@@ -14,8 +54,9 @@ dependencies:
       type: service
     version: 1.0.0
 direct_dependencies:
+- esp-idf-lib/onewire
 - idf
 - waveshare/esp_lora_1121
-manifest_hash: af93479ff67b6d8269c501c2dffa50898b7594b64dbfa2863e2857c5d2b70dc2
+manifest_hash: 1dab11a004cde9fc836351a0bbe37b3e0a6a63e628692a48ef9595fc1c282d64
 target: esp32s3
 version: 2.0.0

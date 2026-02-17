@@ -6,8 +6,11 @@
  */
 
 #include "stormwater_lora.h"
+#include "lr11xx_radio.h"
+#include "lr11xx_system.h"
 #include "lr11xx_system_types.h"
 
+// --- SPI CONFIG ---
 static spi_bus_config_t spi_bus_config = {
   .sclk_io_num = CLK,
   .mosi_io_num = MOSI,
@@ -26,15 +29,24 @@ static spi_device_interface_config_t spi_device_interface_config = {
 
 static spi_device_handle_t spi_device_handle = NULL; 	// SPI handle
 
+
+// --- INTERRUPT PROCESS CONFIG ---
+
 static bool irq_flag;
 
 static void IRAM_ATTR isr(void* arg) {
   irq_flag = true; // Set the interrupt flag
 }
 
+static void on_rx_done(void) {
 
-// PUBLIC METHODS
+}
 
+
+// --- PUBLIC METHODS ---
+/*
+ * @brief initialize LoRa module on SPI2_HOST bus
+ */
 void stormwater_lora_init(void) {
   printf("Initializing SPI2_HOST\n");
   spi_bus_initialize(SPI2_HOST, &spi_bus_config, SPI_DMA_CH_AUTO);
@@ -50,7 +62,21 @@ void stormwater_lora_init(void) {
   lora_init_irq(&lr1121, isr);
 }
 
-void stormwater_lora_irq(const void * context, lr11xx_system_irq_mask_t irq_flags) {
+/*
+ * @brief LoRa module interrupt process
+ */
+void stormwater_lora_irq(const void * context, lr11xx_system_irq_mask_t irq_filter_mask) {
   
+  irq_flag = false;
+
+  lr11xx_system_irq_mask_t irq_regs;
+  lr11xx_system_get_and_clear_irq_status(&lr1121, &irq_regs);
+
+  ESP_LOGD(LR1121_TAG, "Interrupt flags = 0x%08lX\n", &irq_regs);
+
+  irq_regs &= irq_filter_mask;
+
+  ESP_LOGD(LR1121_TAG, "Filtered interrupt flags = 0x%08lX\n", &irq_regs);
+
 }
 
