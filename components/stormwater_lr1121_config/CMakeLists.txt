@@ -1,8 +1,8 @@
 idf_component_register(
 	SRCS
-		"lr1121_config.c"
+		"stormwater_lr1121_config.c"
 	INCLUDE_DIRS
 		"."
-	PRIV_REQUIRES
+	REQUIRES
 		waveshare__esp_lora_1121
 )

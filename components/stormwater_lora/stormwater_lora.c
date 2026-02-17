@@ -1,0 +1,56 @@
+/*!
+ *  @file 	stormwater_lora.c
+ *
+ *  @brief 	common LoRa component of stormwater project, including SPI setup
+ *
+ */
+
+#include "stormwater_lora.h"
+#include "lr11xx_system_types.h"
+
+static spi_bus_config_t spi_bus_config = {
+  .sclk_io_num = CLK,
+  .mosi_io_num = MOSI,
+  .miso_io_num = MISO,
+  .quadwp_io_num = -1,
+  .quadhd_io_num = -1,
+  .max_transfer_sz = 64,
+};
+
+static spi_device_interface_config_t spi_device_interface_config = {
+  .clock_speed_hz = ESP_SPI_CLK_SPEED_HZ,		// 8 MHz
+  .mode = 0,	// SPI mode 0: CPOL=0, CPHA=0
+  .spics_io_num = -1,
+  .queue_size = 1,
+};
+
+static spi_device_handle_t spi_device_handle = NULL; 	// SPI handle
+
+static bool irq_flag;
+
+static void IRAM_ATTR isr(void* arg) {
+  irq_flag = true; // Set the interrupt flag
+}
+
+
+// PUBLIC METHODS
+
+void stormwater_lora_init(void) {
+  printf("Initializing SPI2_HOST\n");
+  spi_bus_initialize(SPI2_HOST, &spi_bus_config, SPI_DMA_CH_AUTO);
+  spi_bus_add_device(SPI2_HOST, &spi_device_interface_config, &spi_device_handle);
+
+  printf("Initializing LoRa over SPI...\n");
+  lora_init_io_context(&lr1121, CS, RESET, BUSY, INT);
+  lora_init_io(&lr1121);
+  lora_spi_init(&lr1121, spi_device_handle);
+  lora_system_init(&lr1121);
+  lora_print_version(&lr1121);
+  lora_radio_init(&lr1121);
+  lora_init_irq(&lr1121, isr);
+}
+
+void stormwater_lora_irq(const void * context, lr11xx_system_irq_mask_t irq_flags) {
+  
+}
+

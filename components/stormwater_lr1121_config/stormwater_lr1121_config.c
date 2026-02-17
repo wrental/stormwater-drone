@@ -1,7 +1,8 @@
 /*!
- * @file      lr1121_config.c
+ * @file      stormwater_lr1121_config.c
  *
- * @brief     Common functions shared by the examples
+ * @brief     common functions/setup for stormwater project, modified from
+ *            waveshare/esp_lora_1121/test_app/main/lr1121_config.c
  *
  * @copyright
  * The Clear BSD License
@@ -33,7 +34,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "lr1121_config.h"
+#include "stormwater_lr1121_config.h"
 
 lr1121_t lr1121;
 

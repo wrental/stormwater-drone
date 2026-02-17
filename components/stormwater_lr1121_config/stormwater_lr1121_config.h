@@ -1,7 +1,8 @@
 /*!
- * @file      lr1121_config.h
+ * @file		  stormwater_lr1121_config.h
  *
- * @brief     Common functions shared by the examples
+ * @brief     common functions/setup for stormwater project, modified from
+ *            waveshare/esp_lora_1121/test_app/main/lr1121_config.h
  *
  * @copyright
  * The Clear BSD License
@@ -33,8 +34,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef LR1121_CONFIG_H
-#define LR1121_CONFIG_H
+#ifndef STORMWATER_LR1121_CONFIG_H
+#define STORMWATER_LR1121_CONFIG_H
 
 #include "esp_lora_1121.h"
 
@@ -44,7 +45,7 @@
  * @brief General parameters
  */
 #define PACKET_TYPE LR11XX_RADIO_PKT_TYPE_LORA //LR11XX_RADIO_PKT_TYPE_GFSK LR11XX_RADIO_PKT_TYPE_LORA
-#define RF_FREQ_IN_HZ 915 * 1000 * 1000		// EU 434 MHz >>> US 915 MHz
+#define RF_FREQ_IN_HZ 915 * 1000 * 1000	// MODIFIED 434 >>> 915
 #define TX_OUTPUT_POWER_DBM 22 //-9~22
 #define PA_RAMP_TIME LR11XX_RADIO_RAMP_48_US
 #define FALLBACK_MODE LR11XX_RADIO_FALLBACK_STDBY_RC
