@@ -3,3 +3,4 @@ build/
 Doxyfile
 Doxyfile.bak
 docs/
+.vscode/

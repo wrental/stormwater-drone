@@ -6,6 +6,11 @@
  */
 
 #include "stormwater_lora.h"
+
+#include "driver/spi_common.h"
+#include "driver/spi_master.h"
+#include "hal/spi_types.h"
+
 #include "lr11xx_radio.h"
 #include "lr11xx_system.h"
 #include "lr11xx_system_types.h"
@@ -45,12 +50,12 @@ static void on_rx_done(void) {
 
 // --- PUBLIC METHODS ---
 /*
- * @brief initialize LoRa module on SPI2_HOST bus
+ * @brief initialize LoRa module on ESP_SPI_NUM bus
  */
 void stormwater_lora_init(void) {
   printf("Initializing SPI2_HOST\n");
-  spi_bus_initialize(SPI2_HOST, &spi_bus_config, SPI_DMA_CH_AUTO);
-  spi_bus_add_device(SPI2_HOST, &spi_device_interface_config, &spi_device_handle);
+  spi_bus_initialize(ESP_SPI_NUM, &spi_bus_config, SPI_DMA_CH_AUTO);
+  spi_bus_add_device(ESP_SPI_NUM, &spi_device_interface_config, &spi_device_handle);
 
   printf("Initializing LoRa over SPI...\n");
   lora_init_io_context(&lr1121, CS, RESET, BUSY, INT);
@@ -65,7 +70,7 @@ void stormwater_lora_init(void) {
 /*
  * @brief LoRa module interrupt process
  */
-void stormwater_lora_irq(const void * context, lr11xx_system_irq_mask_t irq_filter_mask) {
+void stormwater_lora_irq(const void* context, lr11xx_system_irq_mask_t irq_filter_mask) {
   
   irq_flag = false;
 
