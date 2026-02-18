@@ -1,0 +1,13 @@
+--- ESP32-S3-TINY PINOUT ---
+
+
+12V +		<<	5V						TX
+12V - 	<< 	GND						RX
+						3V3  ESP32		18	>> CS
+PUMP		<<	1		S3-TINY		17 	>> CLK
+SPOOL		<<	2							16	>> MOSI
+SPOOL		>>	3							15	<< MISO
+TEMP		>>	4							14	>> RESET
+PH			>>	5							13	<< BUSY
+DO2			>>	6							12	<< INT
+							7 8 9 10 11
