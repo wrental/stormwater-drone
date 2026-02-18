@@ -194,9 +194,13 @@ float read_pH()
       samplingTime = esp_timer_get_time() / 1000;
     }
   }
-
+  double average = average_array(pH_array, ARRAY_LENGTH);
+  if(average == 0){
+    ESP_LOGE(TAG, "Average pH reading is zero, check sensor connection");
+    return 0;
+  }
   // If array is full, calculate average pH value and reset pH index
-  voltage = (float)average_array(pH_array, ARRAY_LENGTH)*3.3f/ADC_RES;
+  voltage = (float)average*3.3f/ADC_RES;
   pH_array_index = 0;
   return PH_GAIN*voltage+PH_OFFSET;
 }
