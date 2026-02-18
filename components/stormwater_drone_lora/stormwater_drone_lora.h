@@ -31,6 +31,22 @@
 #define ITERATION_DELAY		10  // ms
 
 /*!
+ * @brief packet to be sent of length PAYLOAD_LENGTH (in bytes)
+ */
+extern uint8_t stormwater_drone_lora_send_packet[];
+
+/*!
+ * @brief packet to be sent of length PAYLOAD_LENGTH (in bytes)
+ */
+extern uint8_t stormwater_drone_lora_receive_packet[];
+
+/*!
+ * @brief interrupt detect flag
+ */
+extern bool stormwater_drone_lora_irq_flag;
+
+
+/*!
  * @brief initialize lora module and interrupt service routine
  */
 void stormwater_drone_lora_init(void);
@@ -39,21 +55,6 @@ void stormwater_drone_lora_init(void);
  * @brief when flag boolean set, start interrupt process; reads/writes packets
  */
 void stormwater_drone_lora_irq_process(void);
-
-/*!
- * @brief packet to be sent of length PAYLOAD_LENGTH (in bytes)
- */
-uint8_t stormwater_drone_lora_send_packet[PAYLOAD_LENGTH];
-
-/*!
- * @brief packet to be sent of length PAYLOAD_LENGTH (in bytes)
- */
-uint8_t stormwater_drone_lora_receive_packet[PAYLOAD_LENGTH];
-
-/*!
- * @brief interrupt detect flag
- */
-bool stormwater_drone_lora_irq_flag;
 
 
 #endif

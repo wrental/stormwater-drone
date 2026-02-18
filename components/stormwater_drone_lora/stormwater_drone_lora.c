@@ -11,7 +11,6 @@
 #include "lr11xx_regmem.h"
 #include "lr11xx_system_types.h"
 
-
 // --- PRIVATE DEFS AND METHODS ---
 
 static spi_device_handle_t stormwater_drone_spi_handle = NULL;
@@ -19,6 +18,10 @@ static spi_device_handle_t stormwater_drone_spi_handle = NULL;
 static void IRAM_ATTR isr(void* arg) {
 	stormwater_drone_lora_irq_flag = true;
 }
+
+uint8_t stormwater_drone_lora_send_packet[PAYLOAD_LENGTH];
+uint8_t stormwater_drone_lora_receive_packet[PAYLOAD_LENGTH];
+bool stormwater_drone_lora_irq_flag = false;
 
 static void stormwater_drone_spi_init(void) {
 	spi_bus_config_t stormwater_drone_spi_config = {
@@ -95,6 +98,7 @@ static void on_rx_timeout() {
 // --- PUBLIC METHODS ---
 
 void stormwater_drone_lora_init(void) {
+
 	stormwater_drone_spi_init();
 
 	lora_init_io_context(&lr1121, ESP_CS, ESP_RESET, ESP_BUSY, ESP_INT);
