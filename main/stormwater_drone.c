@@ -4,9 +4,17 @@
  * desc: why am i bothering with this again
  */
 
+// stdlib components
+#include <stdio.h>
 
+// project components
 #include "stormwater_drone.h"
 #include "stormwater_sensors.h"
+#include "stormwater_lora.h"
+
+// esp-idf components
+#include "freertos/task.h"
+
 /*
  * @brief main app - call init functions, start loop
  */
