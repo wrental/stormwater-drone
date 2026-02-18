@@ -18,6 +18,7 @@
 // predefined memory allocation
 uint8_t temp;
 uint8_t do_2;
+uint8_t pH;
 
 /*
  * @brief main app - call init functions, start loop
@@ -33,11 +34,11 @@ void app_main(void) {
 
     temp = (uint8_t) get_temp();
     do_2 = (uint8_t) read_do(3300, temp);
-    // TODO: add PH
+    pH = (uint8_t) read_pH();
 
     memcpy (&temp, stormwater_drone_lora_send_packet, 1);
     memcpy (&do_2, stormwater_drone_lora_send_packet + 1, 1);
-    // TODO: add PH
+    memcpy (&pH, stormwater_drone_lora_send_packet + 2, 1);
 
     if(stormwater_drone_lora_irq_flag) {
       stormwater_drone_lora_irq_process();
