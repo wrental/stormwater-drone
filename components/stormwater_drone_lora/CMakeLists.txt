@@ -1,0 +1,12 @@
+idf_component_register(
+	SRCS
+		stormwater_drone_lora.c
+		config/lr1121_config.c
+	INCLUDE_DIRS
+		.
+		config
+	PRIV_REQUIRES
+		waveshare__esp_lora_1121
+		driver
+		freertos
+)
