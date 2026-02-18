@@ -24,7 +24,7 @@
 #define ARRAY_LENGTH    40
 
 // ADC reference voltage and resolution
-#define VREF_MV         5000
+#define VREF_MV         3300
 #define ADC_RES         4095
 
 // DO2 calibration constants
@@ -39,6 +39,7 @@ void sensors_task(void *pvParameters);
 float get_temp(void);
 float read_do(uint32_t voltage_mv, uint8_t temperature_c);
 double average_array(int *arr, int number);
+float read_pH(void);
 
 #endif
 

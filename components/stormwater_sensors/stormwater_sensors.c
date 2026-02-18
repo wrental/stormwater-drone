@@ -73,7 +73,7 @@ void sensors_task(void *pvParameters)
 
       // If array is full, reset index and calculate average pH value
       if(pH_array_index==ARRAY_LENGTH)pH_array_index=0;
-      voltage = average_array(pH_array, ARRAY_LENGTH)*5.0f/ADC_RES;
+      voltage = average_array(pH_array, ARRAY_LENGTH)*3.3f/ADC_RES;
       pHValue = PH_GAIN*voltage+PH_OFFSET;
       samplingTime=esp_timer_get_time() / 1000;
     }
@@ -176,4 +176,31 @@ float read_do(uint32_t voltage_mv, uint8_t temp_c)
 {
   uint16_t V_saturation = (int16_t)((float)temp_c - CAL2_T) * (CAL1_V - CAL2_V) / (CAL1_T - CAL2_T) + CAL2_V;
   return (float)(voltage_mv * DO_Table[temp_c]) / V_saturation;
+}
+
+float read_pH()
+{
+  float voltage = 0;
+  static int64_t samplingTime = 0;
+  if(samplingTime == 0) samplingTime = esp_timer_get_time() / 1000;
+  
+  while(pH_array_index!=ARRAY_LENGTH){
+    if((esp_timer_get_time() / 1000) - samplingTime > SAMPLING_INTERVAL_MS)
+    {
+      // Read raw ADC value for pH sensor and store in array
+      int raw = 0;
+      adc_oneshot_read(adc_handle, PH_ADC_CHANNEL, &raw);
+      pH_array[pH_array_index++] = raw;
+      samplingTime = esp_timer_get_time() / 1000;
+    }
+  }
+  double average = average_array(pH_array, ARRAY_LENGTH);
+  if(average == 0){
+    ESP_LOGE(TAG, "Average pH reading is zero, check sensor connection");
+    return 0;
+  }
+  // If array is full, calculate average pH value and reset pH index
+  voltage = (float)average*3.3f/ADC_RES;
+  pH_array_index = 0;
+  return PH_GAIN*voltage+PH_OFFSET;
 }
