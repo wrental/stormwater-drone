@@ -4,16 +4,14 @@ date: 02-10-2026
 auth: wrental  
 desc: vague pseudocode for drone/ctrlr process  
 
-## general file structure:
+## project structure:
 ```
 .  
-├── main (application)  
+├── main (main app)
 │   ├── stormwater_drone.c (app src)  
 │   └── stormwater_drone.h (app hdr)  
-├── components (app dependencies - per dir: 'CMakeLists.txt' 'user_component.c' 'user_component.h')  
-│   └── lr1121_config  
-├── managed_components (idf-component-registry dependencies, maintained by idf.py)  
-│   └── waveshare__esp_lora_1121  
+├── components (user-written app dependencies)  
+├── managed_components (idf-component-registry dependencies)  
 └── README.md  
 ```
 

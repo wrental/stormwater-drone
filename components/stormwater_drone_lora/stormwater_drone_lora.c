@@ -37,7 +37,7 @@ static void stormwater_drone_spi_init(void) {
 		.clock_speed_hz = ESP_SPI_CLK_HZ,
 		.mode = 0,
 		.spics_io_num = -1,
-		.queue_size = -1,
+		.queue_size = 1,
 	};
 
 
@@ -49,7 +49,7 @@ static void reception_failure(void) {
 	if(IS_HOST) {
 		// TODO: add debug message: client failed to respond
 		lr11xx_regmem_write_buffer8(&lr1121, stormwater_drone_lora_send_packet, PAYLOAD_LENGTH);
-		lr11xx_radio_set_tx(&lr1121, 0);
+		lr11xx_radio_set_tx(&lr1121, 50);
 	}
 	else {
 		lr11xx_radio_set_rx(&lr1121, RX_CONTINUOUS);

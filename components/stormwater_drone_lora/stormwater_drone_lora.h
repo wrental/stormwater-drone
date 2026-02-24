@@ -4,13 +4,13 @@
 #include "lr1121_config.h"
 
 // ESP GPIO PINS
-#define ESP_CS			(GPIO_NUM_12)
-#define ESP_CLK			(GPIO_NUM_13)
-#define ESP_MOSI		(GPIO_NUM_14)
+#define ESP_CS			(GPIO_NUM_18)
+#define ESP_CLK			(GPIO_NUM_17)
+#define ESP_MOSI		(GPIO_NUM_16)
 #define ESP_MISO		(GPIO_NUM_15)
-#define ESP_RESET		(GPIO_NUM_16)
-#define ESP_BUSY		(GPIO_NUM_17)
-#define ESP_INT			(GPIO_NUM_18)
+#define ESP_RESET		(GPIO_NUM_14)
+#define ESP_BUSY		(GPIO_NUM_13)
+#define ESP_INT			(GPIO_NUM_12)
 
 // ESP SPI CONFIG
 #define ESP_SPI_HOST			(SPI2_HOST)
@@ -28,7 +28,7 @@
 #define PACKET_PREFIX_SIZE	0
 #define SYNC_PACKET_THRESHOLD	64
 #define TX_RX_TRANSITION_DELAY	10  // ms
-#define ITERATION_DELAY		10  // ms
+#define ITERATION_DELAY		1000  // ms
 
 /*!
  * @brief packet to be sent of length PAYLOAD_LENGTH (in bytes)
